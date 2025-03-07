@@ -2,35 +2,27 @@
 
 <main>
   <ul id="users">
-    <li>
-      <app-user
-        [user]="users[0]"
-        (select)="onSelectUser($event)"
-      />
-      <!-- self closing tag -->
-    </li>
-    <li>
-      <app-user
-        [user]="users[1]"
-        (select)="onSelectUser($event)"
-      />
-      <!-- self closing tag -->
-    </li>
-    <li>
-      <app-user
-        [user]="users[2]"
-        (select)="onSelectUser($event)"
-      />
-      <!-- self closing tag -->
-    </li>
-    <li>
-      <app-user
-        [user]="users[3]"
-        (select)="onSelectUser($event)"
-      />
-      <!-- self closing tag -->
-    </li>
+    <!-- <li *ngFor= "let user of users">
+        <app-user
+          [user]="item"
+          (select)="onSelectUser($event)"
+        />
+        need to import NgFor from angular/common
+      </li>-->
+    @for (item of users; track item.id) {
+      <li>
+        <app-user
+          [user]="item"
+          (select)="onSelectUser($event)"
+        />
+        <!-- self closing tag -->
+      </li>
+    }
   </ul>
 
-  <app-tasks [name]="selectedUser.name"></app-tasks>
+  @if (selectedUser) {
+    <app-tasks [name]="selectedUser.name"></app-tasks>
+  } @else {
+    <p id="fallback">Select a user to see their tasks!</p>
+  }
 </main>
