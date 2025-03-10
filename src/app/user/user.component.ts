@@ -10,6 +10,7 @@ import { type User } from './user.model';
 })
 export class UserComponent {
   @Input({required: true}) userItem!: User;
+  @Input({required: true}) selected!: boolean;
   //@Input({required: true}) avatar!: string;
   //@Input({required: true}) name!: string;
   //avatar = input.required<string>();

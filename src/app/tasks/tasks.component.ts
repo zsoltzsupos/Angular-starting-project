@@ -24,4 +24,9 @@ export class TasksComponent {
   onSelectUser(id: string) {
     console.log('Selected user with id ' + id)
   }
+
+  //Filter out which is clicked, show task which is not clicked
+  onCompleteTask(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
 }
