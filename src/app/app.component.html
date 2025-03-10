@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header></app-header> <!--header component added from header.component.html-->
 
 <main>
   <ul id="users">
@@ -16,7 +16,7 @@
           [selected]="item.id === selectedUserId"
           (select)="onSelectUser($event)"
         />
-        <!-- self closing tag -->
+        <!-- Create a list from the DUMMYUSERS array, input userItem -->
       </li>
     }
   </ul>
